@@ -22,7 +22,9 @@ const PageHeader: React.FC<IPageHeaderProps>= (props) => {
 
         <div className="header-content">
     <strong>{props.title}</strong>
-        </div>
+
+        {props.children}
+        </div>  
     </header>
     )
 }
