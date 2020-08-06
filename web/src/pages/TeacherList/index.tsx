@@ -1,39 +1,55 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
 
-import PageHeader from '../../components/PageHeader';
+import PageHeader from "../../components/PageHeader";
+import Input from "../../components/Input";
+import Select from "../../components/Select";
+import TeacherItem from "../../components/TeacherItem";
 
-import TeacherItem from '../../components/TeacherItem';
-
-import './styles.css';
+import "./styles.css";
 
 function TeacherList() {
-    return(
-        <div id="page-teachers-list" className="container">
-            <PageHeader title="Estes são os proffys disponíveis.">
-                <form id="search-teachers">
-                    <div className="input-block">
-                        <label htmlFor="subject">Matérias</label>
-                        <input type="text" id="subject" />                        
-                    </div>
+  return (
+    <div id="page-teachers-list" className="container">
+      <PageHeader title="Estes são os proffys disponíveis.">
+        <form id="search-teachers">
+          <Select
+            name="subject"
+            label="Matéria"
+            initialTextOption="Selecione uma matéria"
+            options={[
+              { value: "Artes", label: "Artes" },
+              { value: "Biologia", label: "Biologia" },
+              { value: "Ciências", label: "Ciências" },
+              { value: "Matemática", label: "Matemática" },
+              { value: "Português", label: "Português" },
+              { value: "Física", label: "Física" },
+              { value: "Química", label: "Química" },
+              { value: "Computação", label: "Computação" },
+            ]}
+          />
+          <Select
+            name="week_day"
+            label="Dia da semana"
+            initialTextOption="Selecione um dia"
+            options={[
+              { value: "0", label: "Domingo" },
+              { value: "1", label: "Segunda-feira" },
+              { value: "2", label: "Terça-feira" },
+              { value: "3", label: "Quarta-feira" },
+              { value: "4", label: "Quinta-feira" },
+              { value: "5", label: "Sexta-feira" },
+              { value: "6", label: "Sábado" },
+            ]}
+          />
+          <Input type="time" name="time" label="Hora" />
+        </form>
+      </PageHeader>
 
-                    <div className="input-block">
-                        <label htmlFor="week_day">Dia da semana</label>
-                        <input type="text" id="week_day" />                        
-                    </div>
-
-                    <div className="input-block">
-                        <label htmlFor="time">Hora</label>
-                        <input type="text" id="time" />                        
-                    </div>
-                </form>
-                </PageHeader>
-
-                <main>
-                    <TeacherItem />
-                </main>
-        </div>
-    )
+      <main>
+        <TeacherItem />
+      </main>
+    </div>
+  );
 }
 
 export default TeacherList;
